@@ -7,4 +7,4 @@ for (let i = 0; i < 3; i++) {
   products += `<div>${name}</div>`;
 }
 
-document.querySelector("#products").innerHTML = products;
+document.querySelector("#root").innerHTML = products;

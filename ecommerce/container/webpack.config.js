@@ -5,14 +5,12 @@ const path = require("path");
 module.exports = {
   mode: "development",
   devServer: {
-    port: 8081,
+    port: 8080,
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "products",
-      filename: "remoteProduct.js",
-      exposes: {
-        "./productsIndex": path.join(__dirname, "src/index"),
+      remotes: {
+        products: "products@http://localhost:8081/remoteProduct.js",
       },
     }),
     new HtmlWebpackPlugin({
