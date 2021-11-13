@@ -1,17 +1,18 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
   mode: "development",
   devServer: {
-    port: 8080,
+    port: 8082,
   },
   plugins: [
     new ModuleFederationPlugin({
-      remotes: {
-        products: "products@http://localhost:8081/remoteProduct.js",
-        cart: "cart@http://localhost:8082/remoteCart.js",
+      name: "cart",
+      filename: "remoteCart.js",
+      exposes: {
+        "./cartIndex": path.join(__dirname, "src/index.js"),
       },
     }),
     new HtmlWebpackPlugin({
