@@ -2,7 +2,6 @@ const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const commonConfig = require("./webpack.common");
 const { ModuleFederationPlugin } = require("webpack").container;
-const path = require("path");
 
 /**
  * @type import('webpack').Configuration
@@ -19,9 +18,9 @@ const devConfig = {
     }),
     new ModuleFederationPlugin({
       name: "marketing",
-      filename: "remoteEntry.js",
+      filename: "remoteMarketing",
       exposes: {
-        "./MarketingApp": path.join(__dirname, "src/bootstrap.js"),
+        Marketing: "./src/bootstrap.js",
       },
     }),
   ],

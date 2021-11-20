@@ -16,4 +16,4 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Running through container
-export { mount as mountMarketing };
+export { mount };
