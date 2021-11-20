@@ -12,13 +12,9 @@ module.exports = {
       name: "cart",
       filename: "remoteCart.js",
       exposes: {
-        "./cartIndex": path.join(__dirname, "src/index.js"),
+        "./cartIndex": path.join(__dirname, "src/bootstrap.js"),
       },
-      shared: {
-        faker: {
-          singleton: true,
-        },
-      },
+      shared: ["faker"],
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public/index.html"),

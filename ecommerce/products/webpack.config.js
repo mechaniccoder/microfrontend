@@ -12,7 +12,7 @@ module.exports = {
       name: "products",
       filename: "remoteProduct.js",
       exposes: {
-        "./productsIndex": path.join(__dirname, "src/index"),
+        "./productsIndex": path.join(__dirname, "src/bootstrap"),
       },
       shared: ["faker"],
     }),
