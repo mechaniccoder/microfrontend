@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const commonConfig = require("./webpack.common");
 const { ModuleFederationPlugin } = require("webpack").container;
 const path = require("path");
+const packageJson = require("./package.json");
 
 /**
  * @type import('webpack').Configuration
@@ -23,7 +24,7 @@ const devConfig = {
       exposes: {
         "./MarketingApp": path.join(__dirname, "src/bootstrap.js"),
       },
-      shared: ["react", "react-dom"],
+      shared: packageJson.dependencies,
     }),
   ],
 };
