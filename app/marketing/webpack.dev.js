@@ -23,6 +23,7 @@ const devConfig = {
       exposes: {
         "./MarketingApp": path.join(__dirname, "src/bootstrap.js"),
       },
+      shared: ["react", "react-dom"],
     }),
   ],
 };
