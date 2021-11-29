@@ -11,5 +11,4 @@
 ### Handling CSS
 
 - projects의 css 충돌을 막아야 스타일 에러를 잡을 수 있다.
-
-1. custom
+- css-in-js 라이브러리를 사용한다면 production prefix를 설정을 하자.
