@@ -1,0 +1,15 @@
+## Micronfrontend 주의할 점
+
+### Zero-coupling between apps
+
+- 앱끼리 의존성이 있을 경우, 하나를 변경할때 다른 하나도 변경해야만 하기 때문에, 반드시 의존성을 없애자.
+
+### A few coupling between app and container
+
+- render를 담당하는 함수를 container에서 사용하는 방식을 활용한다.
+
+### Handling CSS
+
+- projects의 css 충돌을 막아야 스타일 에러를 잡을 수 있다.
+
+1. custom
