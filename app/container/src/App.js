@@ -1,10 +1,12 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import loadable from "@loadable/component";
 import { StylesProvider, createGenerateClassName } from "@material-ui/styles";
 
-import MarketingApp from "./components/MarketingApp";
-import AuthApp from "./components/AuthApp";
 import Header from "./components/Header";
+
+const MarketingApp = loadable(() => import("./components/MarketingApp"));
+const AuthApp = loadable(() => import("./components/AuthApp"));
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "co",
