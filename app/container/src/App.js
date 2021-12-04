@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import loadable from "@loadable/component";
 import { StylesProvider, createGenerateClassName } from "@material-ui/styles";
@@ -13,13 +13,20 @@ const generateClassName = createGenerateClassName({
 });
 
 const App = () => {
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
   return (
     <BrowserRouter>
       <StylesProvider generateClassName={generateClassName}>
         <div>
-          <Header />
+          <Header
+            signedIn={isSignedIn}
+            onSignOut={() => setIsSignedIn(false)}
+          />
           <Switch>
-            <Route path="/auth" component={AuthApp} />
+            <Route path="/auth">
+              <AuthApp onSignIn={() => setIsSignedIn(true)} />
+            </Route>
             <Route path="/" component={MarketingApp} />
           </Switch>
         </div>
