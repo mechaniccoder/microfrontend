@@ -24,3 +24,8 @@
 
 - sub-app에서 public path를 항상 조심히 설정해야한다.
 - remoteEntry.js, main.js(webpack output)의 경로는 sub-app이 isolation하게 돌 때랑, container와 함께 돌때 충돌이 일어날 수도 있다.
+- 따라서, publicPath를 정확히 명시해주도록 하자.
+
+### Authentication
+
+- authentication logic을 centralizing하는 방법
