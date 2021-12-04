@@ -16,3 +16,6 @@
 ### Navigator between apps
 
 - container에는 BrowserRouter, sub-apps에서는 Memory Router를 설정한다.
+- container의 browser history와 sub-apps의 memory history에서 오는 이슈가 있다. 따라서 memory history와 container의 browser history의 동기화를 설정해줘야 한다.
+- container browser history 변경 -> sub-app memory history에 반영
+- sub-app memory history 변경 -> container browser history 반영
