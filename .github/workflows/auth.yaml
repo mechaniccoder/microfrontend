@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "app/auth/**"
+      - ".github/workflows/auth.yaml"
 
 defaults:
   run:

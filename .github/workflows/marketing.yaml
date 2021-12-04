@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "app/marketing/**"
+      - ".github/workflows/marketing.yaml"
 
 defaults:
   run:

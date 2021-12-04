@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "app/container/**"
+      - ".github/workflows/container.yaml"
 
 defaults:
   run:
