@@ -5,10 +5,10 @@ import {
   Route,
   Router,
   Redirect,
+  useHistory,
 } from "react-router-dom";
 import loadable from "@loadable/component";
 import { StylesProvider, createGenerateClassName } from "@material-ui/styles";
-import { createBrowserHistory } from "history";
 
 import Header from "./components/Header";
 
@@ -20,10 +20,9 @@ const generateClassName = createGenerateClassName({
   productionPrefix: "co",
 });
 
-const history = createBrowserHistory();
-
 const App = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     if (isSignedIn) {
@@ -32,26 +31,21 @@ const App = () => {
   }, [isSignedIn]);
 
   return (
-    <Router history={history}>
-      <StylesProvider generateClassName={generateClassName}>
-        <div>
-          <Header
-            signedIn={isSignedIn}
-            onSignOut={() => setIsSignedIn(false)}
-          />
-          <Switch>
-            <Route path="/auth">
-              <AuthApp onSignIn={() => setIsSignedIn(true)} />
-            </Route>
-            <Route path="/dashboard">
-              {!isSignedIn && <Redirect to="/" />}
-              <DashBoardApp />
-            </Route>
-            <Route path="/" component={MarketingApp} />
-          </Switch>
-        </div>
-      </StylesProvider>
-    </Router>
+    <StylesProvider generateClassName={generateClassName}>
+      <div>
+        <Header signedIn={isSignedIn} onSignOut={() => setIsSignedIn(false)} />
+        <Switch>
+          <Route path="/auth">
+            <AuthApp onSignIn={() => setIsSignedIn(true)} />
+          </Route>
+          <Route path="/dashboard">
+            {!isSignedIn && <Redirect to="/" />}
+            <DashBoardApp />
+          </Route>
+          <Route path="/" component={MarketingApp} />
+        </Switch>
+      </div>
+    </StylesProvider>
   );
 };
 
