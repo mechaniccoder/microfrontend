@@ -19,3 +19,8 @@
 - container의 browser history와 sub-apps의 memory history에서 오는 이슈가 있다. 따라서 memory history와 container의 browser history의 동기화를 설정해줘야 한다.
 - container browser history 변경 -> sub-app memory history에 반영
 - sub-app memory history 변경 -> container browser history 반영
+
+### Public path between sub-apps
+
+- sub-app에서 public path를 항상 조심히 설정해야한다.
+- remoteEntry.js, main.js(webpack output)의 경로는 sub-app이 isolation하게 돌 때랑, container와 함께 돌때 충돌이 일어날 수도 있다.

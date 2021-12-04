@@ -8,8 +8,11 @@ const { ModuleFederationPlugin } = require("webpack").container;
  */
 const devConfig = {
   mode: "development",
+  output: {
+    publicPath: "http://localhost:8080/",
+  },
   devServer: {
-    port: 8081,
+    port: 8080,
     historyApiFallback: true,
   },
   plugins: [
