@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDom from "react-dom";
 import App from "./App";
-import { createMemoryHistory } from "history";
+import { createMemoryHistory, createBrowserHistory } from "history";
 
 // Mount function to start up the app
-const mount = (el, { onNavigate }) => {
-  const history = createMemoryHistory();
+const mount = (el, { onNavigate, defaultHistory }) => {
+  const history = defaultHistory ?? createMemoryHistory();
 
   if (onNavigate) {
     history.listen(onNavigate);
@@ -27,7 +27,9 @@ const mount = (el, { onNavigate }) => {
 if (process.env.NODE_ENV === "development") {
   const root = document.querySelector("#dev-marketing-root");
   if (root) {
-    mount(root, {});
+    mount(root, {
+      defaultHistory: createBrowserHistory(),
+    });
   }
 }
 
